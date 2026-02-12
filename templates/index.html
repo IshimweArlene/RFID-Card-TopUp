@@ -3,119 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zephyr | Premium Ledger</title>
+  <title>404 • Financial Integrity</title>
+  <!-- Socket.IO (kept for backend compatibility, purely frontend styling) -->
   <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Inter:wght@200;400;500&display=swap" rel="stylesheet">
+  <!-- Fonts: Inter + Bodoni Moda (kept for elegance) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-deep: #050505;        /* Pitch Black Background */
-      --container-bg: #111111;  /* Gunmetal Gray Container */
-      --panel-inner: #161616;   /* Slightly lighter for contrast */
-      --accent: #ffffff;
-      --text-bright: #ffffff;
-      --text-soft: #a0a0a0;
-      --text-dim: #444444;
-      --border-thin: rgba(255, 255, 255, 0.1);
+    /* ------------------------------------------------------------------
+       MODERN / PROFESSIONAL / ZERO GRADIENTS – refined, clean, interactive 
+       Dark theme, crisp borders, subtle shadows, sharp hover effects.
+    ------------------------------------------------------------------ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      background-color: var(--bg-deep);
-      color: var(--text-bright);
       font-family: 'Inter', sans-serif;
-      margin: 0;
-      height: 100vh;
+      background-color: #0c0c0c;   /* deep solid background – no gradient */
       display: flex;
-      justify-content: center;
       align-items: center;
-      /* Subtle radial glow to give depth to the black background */
-      background-image: radial-gradient(circle at center, #0f0f0f 0%, #050505 100%);
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      color: #ffffff;
     }
 
+    /* main card – pure surface, no gradient, just sharp shadow & crisp border */
     .container {
-      width: 90%;
-      max-width: 1050px;
-      height: 75vh;
       display: grid;
       grid-template-columns: 380px 1fr;
-      background: var(--container-bg);
-      border: 1px solid var(--border-thin);
-      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
-      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      height: 85vh;
+      min-height: 700px;
+      background: #111111;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px -12px rgba(0, 0, 0, 0.9);
+      border: 1px solid #262626;
       overflow: hidden;
+      transition: box-shadow 0.2s ease;
     }
 
-    /* Left Side: Interaction */
+    .container:hover {
+      box-shadow: 0 20px 50px -10px #000000;
+    }
+
+    /* ---------- LEFT PANEL – clean, structured, interactive ---------- */
     .panel-left {
-      padding: 60px 45px;
-      background: var(--panel-inner);
-      border-right: 1px solid var(--border-thin);
+      background-color: #0f0f0f;
+      border-right: 1px solid #262626;
+      padding: 48px 40px;
       display: flex;
       flex-direction: column;
     }
 
-    header { margin-bottom: 60px; }
-
     header h1 {
       font-family: 'Bodoni Moda', serif;
-      font-size: 3rem;
-      font-weight: 400;
+      font-size: 3.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
       margin: 0;
-      letter-spacing: -2px;
+      line-height: 1;
+      color: #ffffff;
     }
 
     .tagline {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      color: var(--text-dim);
-      margin-top: 5px;
-    }
-
-    .field { margin-bottom: 45px; }
-
-    label {
-      font-size: 0.55rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--text-soft);
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    input {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--border-thin);
-      padding: 10px 0;
-      color: var(--text-bright);
-      font-family: 'Bodoni Moda', serif;
-      font-size: 1.6rem;
-      outline: none;
-      transition: border-color 0.4s ease;
-    }
-
-    input:focus { border-bottom-color: var(--accent); }
-
-    button {
-      background: var(--accent);
-      color: var(--bg-deep);
-      border: none;
-      padding: 20px;
       font-size: 0.7rem;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 4px;
-      cursor: pointer;
-      margin-top: auto;
-      transition: opacity 0.3s;
+      letter-spacing: 6px;
+      color: #969696;
+      margin-top: 8px;
+      border-bottom: 1.5px solid #2a2a2a;
+      padding-bottom: 20px;
     }
 
-    button:hover { opacity: 0.85; }
+    .field {
+      margin-top: 48px;
+    }
 
-    /* Right Side: Ledger */
+    label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: #a0a0a0;
+      margin-bottom: 12px;
+    }
+
+    /* static identity input – premium feel */
+    #uid {
+      width: 100%;
+      padding: 16px 18px;
+      background-color: #1a1a1a;
+      border: 1.5px solid #2e2e2e;
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      outline: none;
+      transition: border 0.2s, background 0.2s;
+      cursor: default;
+      font-family: 'Inter', sans-serif;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    /* amount input – interactive, clean */
+    #amount {
+      width: 100%;
+      padding: 16px 18px;
+      background-color: #1a1a1a;
+      border: 1.5px solid #2e2e2e;
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 1.6rem;
+      font-weight: 500;
+      outline: none;
+      transition: all 0.15s ease;
+      font-family: 'Inter', sans-serif;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    #amount:focus {
+      border-color: #6b4eff;       /* solid accent – no glow, just crisp border */
+      background-color: #151515;
+    }
+
+    #amount::placeholder {
+      color: #4a4a4a;
+      font-weight: 300;
+      font-size: 1.2rem;
+    }
+
+    /* primary CTA – no gradient, pure solid, sharp interactive */
+    button {
+      margin-top: auto;
+      padding: 20px 0;
+      background-color: #6b4eff;    /* bold solid purple/blue – professional */
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.15s cubic-bezier(0.2, 0.9, 0.4, 1);
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 4px 0 #3d2ea3;  /* subtle 3D press effect – modern */
+    }
+
+    button:hover {
+      background-color: #7c64ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #3d2ea3;
+    }
+
+    button:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #3d2ea3;
+    }
+
+    /* ---------- RIGHT PANEL – LEDGER ARCHIVE – crisp & readable ---------- */
     .panel-right {
-      padding: 60px;
+      background-color: #0d0d0d;
+      padding: 48px 40px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -123,151 +179,319 @@
 
     .log-title {
       font-family: 'Bodoni Moda', serif;
-      font-size: 1.2rem;
-      font-style: italic;
-      color: var(--text-soft);
-      margin-bottom: 40px;
+      font-size: 1.3rem;
+      font-weight: 500;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
+      color: #dddddd;
+      margin-bottom: 36px;
+      border-bottom: 1px solid #292929;
+      padding-bottom: 16px;
+    }
+
+    .log-title span:first-child {
+      letter-spacing: -0.01em;
+    }
+
+    .log-title span:last-child {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 5px;
+      color: #7e7e7e;
+      background: #1a1a1a;
+      padding: 6px 14px;
+      border-radius: 40px;
+      border: 1px solid #2e2e2e;
+      text-transform: uppercase;
     }
 
     #log {
-      flex-grow: 1;
+      flex: 1;
       overflow-y: auto;
-      padding-right: 20px;
+      padding-right: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
+    /* Entry cards – modern, minimal, sharp */
     .entry {
-      padding: 30px 0;
-      border-bottom: 1px solid var(--border-thin);
+      background: #141414;
+      border: 1px solid #282828;
+      border-radius: 18px;
+      padding: 22px 26px;
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      align-items: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 0 #080808;   /* solid press shadow – professional */
     }
 
-    @keyframes reveal {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
+    .entry:hover {
+      border-color: #4d4d4d;
+      background: #171717;
+      transform: scale(1.01);
     }
 
     .entry-uid {
-      font-size: 0.65rem;
-      color: var(--text-soft);
-      letter-spacing: 1px;
-      display: block;
-      margin-bottom: 5px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #afafaf;
+      margin-bottom: 6px;
     }
 
     .entry-val {
       font-family: 'Bodoni Moda', serif;
-      font-size: 2.2rem;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #ffffff;
       line-height: 1;
+      margin-top: 4px;
+    }
+
+    .entry-val span {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #8a8a8a;
+      margin-left: 4px;
     }
 
     .entry-status {
-      font-size: 0.5rem;
+      font-size: 0.6rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--text-dim);
+      color: #a0a0a0;
       margin-top: 8px;
+      border-top: 1px solid #2a2a2a;
+      padding-top: 8px;
+      display: inline-block;
     }
 
     .dismiss {
-      font-size: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-dim);
+      letter-spacing: 2.5px;
+      color: #fc6e6e;
+      background: rgba(255, 70, 70, 0.06);
+      padding: 8px 14px;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 100, 100, 0.3);
       cursor: pointer;
-      transition: color 0.3s;
+      transition: all 0.15s ease;
+      align-self: center;
     }
 
-    .dismiss:hover { color: #ff5e5e; }
+    .dismiss:hover {
+      background: #ff4f4f;
+      color: #000000;
+      border-color: #ff4f4f;
+      font-weight: 700;
+    }
 
-    /* Custom thin scrollbar */
-    #log::-webkit-scrollbar { width: 2px; }
-    #log::-webkit-scrollbar-thumb { background: var(--text-dim); }
+    /* custom scroll – sharp, minimal */
+    #log::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    #log::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    #log::-webkit-scrollbar-thumb {
+      background: #363636;
+      border-radius: 20px;
+      border: none;
+    }
+
+    #log::-webkit-scrollbar-thumb:hover {
+      background: #505050;
+    }
+
+    /* remove transition helper – keeps smooth deletion */
+    .entry {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.2s, transform 0.25s, border 0.1s, background 0.1s;
+    }
+
+    /* responsive adjustments */
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="panel-left">
-      <header>
-        <h1>Zephyr</h1>
-        <div class="tagline">Financial Integrity</div>
-      </header>
+<div class="container">
+  <!-- LEFT PANEL – AUTHORIZATION INTERFACE -->
+  <div class="panel-left">
+    <header>
+      <h1>404</h1>
+      <div class="tagline">Financial Integrity</div>
+    </header>
 
-      <div class="field">
-        <label>Active Identity</label>
-        <input id="uid" placeholder="Waiting..." readonly>
-      </div>
-
-      <div class="field">
-        <label>Transaction Amount (RWF)</label>
-        <input id="amount" type="number" placeholder="00.00">
-      </div>
-
-      <button onclick="sendTopup()">Authorize Action</button>
+    <div class="field">
+      <label>Active Identity</label>
+      <input id="uid" placeholder="— awaiting card —" readonly>
     </div>
 
-    <div class="panel-right">
-      <div class="log-title">
-        <span>Ledger Archive</span>
-        <span style="font-size: 0.6rem; letter-spacing: 4px; font-style: normal;">ENCRYPTED</span>
-      </div>
-      <div id="log">
-        </div>
+    <div class="field">
+      <label>Transaction Amount <span style="font-weight:300; letter-spacing:1px; margin-left:6px; color:#bbb;">(RWF)</span></label>
+      <input id="amount" type="number" placeholder="0.00">
     </div>
+
+    <button onclick="sendTopup()">Authorize Action</button>
   </div>
 
-  <script>
-    const socket = io();
-    const logDiv = document.getElementById('log');
-
-    socket.on('card_update', data => {
-      const entryId = 'e-' + Math.random().toString(36).substr(2, 5);
-      const entry = document.createElement('div');
-      entry.className = 'entry';
-      entry.id = entryId;
-      
-      let title = data.balance !== undefined ? "Account Balance" : "Successful Top-up";
-      let val = data.balance !== undefined ? data.balance : data.new_balance;
-
-      entry.innerHTML = `
+  <!-- RIGHT PANEL – LEDGER (PURE LOG) -->
+  <div class="panel-right">
+    <div class="log-title">
+      <span>Ledger Archive</span>
+      <span>ENCRYPTED</span>
+    </div>
+    <div id="log">
+      <!-- sample static entries to demonstrate professional layout — purely frontend demo, no gradients, interactive -->
+      <div class="entry" id="e-sample1">
         <div>
-          <span class="entry-uid">${data.uid}</span>
-          <div class="entry-val">${val.toLocaleString()} <span style="font-size: 0.9rem; font-style: italic; opacity: 0.4;">rwf</span></div>
-          <div class="entry-status">${title}</div>
+          <span class="entry-uid">CARD • 78A2-F1</span>
+          <div class="entry-val">24,800 <span>RWF</span></div>
+          <div class="entry-status">Account Balance</div>
         </div>
-        <div class="dismiss" onclick="removeEntry('${entryId}')">Dismiss</div>
-      `;
-      
-      logDiv.prepend(entry);
-      if (data.balance !== undefined) document.getElementById('uid').value = data.uid;
+        <div class="dismiss" onclick="removeEntry('e-sample1')">Dismiss</div>
+      </div>
+      <div class="entry" id="e-sample2">
+        <div>
+          <span class="entry-uid">CARD • B903-4C</span>
+          <div class="entry-val">5,000 <span>RWF</span></div>
+          <div class="entry-status">Successful Top-up</div>
+        </div>
+        <div class="dismiss" onclick="removeEntry('e-sample2')">Dismiss</div>
+      </div>
+      <div class="entry" id="e-sample3">
+        <div>
+          <span class="entry-uid">CARD • D2A7-99</span>
+          <div class="entry-val">12,450 <span>RWF</span></div>
+          <div class="entry-status">Account Balance</div>
+        </div>
+        <div class="dismiss" onclick="removeEntry('e-sample3')">Dismiss</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  const socket = io();
+  const logDiv = document.getElementById('log');
+
+  socket.on('card_update', function (data) {
+    // generate unique ID for smooth removal
+    const entryId = 'entry-' + Date.now() + '-' + Math.random().toString(36).substring(2, 6);
+    
+    const entry = document.createElement('div');
+    entry.className = 'entry';
+    entry.id = entryId;
+
+    // determine transaction type (compatible with original)
+    const isBalance = data.balance !== undefined;
+    const title = isBalance ? 'Account Balance' : 'Successful Top-up';
+    const value = isBalance ? data.balance : data.new_balance;
+    const uidDisplay = data.uid ? data.uid : '•••• ••••';
+
+    // build inner – crisp typography, no gradient, pure modern style
+    entry.innerHTML = `
+      <div>
+        <span class="entry-uid">${uidDisplay}</span>
+        <div class="entry-val">${Number(value).toLocaleString()} <span>RWF</span></div>
+        <div class="entry-status">${title}</div>
+      </div>
+      <div class="dismiss" onclick="removeEntry('${entryId}')">Dismiss</div>
+    `;
+
+    // prepend to log (newest first)
+    logDiv.prepend(entry);
+
+    // update Active Identity field if balance update (standard behaviour)
+    if (isBalance && data.uid) {
+      document.getElementById('uid').value = data.uid;
+    }
+  });
+
+
+  window.removeEntry = function (id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(24px)';
+    // also minimal scale-out for modern feel
+    el.style.transition = 'opacity 0.2s, transform 0.25s';
+    setTimeout(() => {
+      if (el && el.parentNode) el.remove();
+    }, 280);
+  };
+
+
+  window.sendTopup = function () {
+    const uid = document.getElementById('uid').value;
+    const amt = document.getElementById('amount').value;
+    
+    // ignore if no uid or amount
+    if (!uid || uid === '— awaiting card —' || !amt) {
+      // subtle alert alternative (styling friendly)
+      const inputField = document.getElementById('amount');
+      inputField.style.borderColor = '#ff6b6b';
+      setTimeout(() => inputField.style.borderColor = '#2e2e2e', 300);
+      return;
+    }
+
+    // proceed with fetch (same endpoint, backend ready)
+    fetch('/topup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ uid, amount: parseInt(amt) })
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('topup failed');
+      document.getElementById('amount').value = '';   // clear
+    })
+    .catch(err => {
+      console.error('topup error', err);
+      // silent for frontend – no breaking change
     });
+  };
 
-    function removeEntry(id) {
-        const el = document.getElementById(id);
-        el.style.opacity = '0';
-        el.style.transform = 'translateX(10px)';
-        setTimeout(() => el.remove(), 400);
+
+  window.addEventListener('load', function() {
+    const uidInput = document.getElementById('uid');
+    if (!uidInput.value || uidInput.value === '') {
+      uidInput.value = '— awaiting card —';
     }
+  });
 
-    function sendTopup() {
-      const uid = document.getElementById('uid').value;
-      const amt = document.getElementById('amount').value;
-      if(!uid || !amt) return;
-
-      fetch('/topup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ uid, amount: parseInt(amt) })
-      }).then(() => {
-          document.getElementById('amount').value = '';
-      });
+  // minor interaction: amount input number arrows hidden (clean)
+  // style modern spinner removal
+  const style = document.createElement('style');
+  style.innerHTML = `
+    /* hide spinners for cleaner look */
+    #amount::-webkit-outer-spin-button,
+    #amount::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
-  </script>
+    #amount[type=number] {
+      -moz-appearance: textfield;
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
 </body>
 </html>

@@ -6,7 +6,7 @@ RFID Card Top-Up System
 
 Access the web dashboard here:
 
-http://157.173.101.159:9277/frontend.html
+http://157.173.101.159:9235/frontend.html
 
 📌 Project Overview
 
@@ -109,7 +109,7 @@ python main.py
 
 Server runs on:
 
-http://157.173.101.159:9277
+http://157.173.101.159:9235
 
 📡 MQTT Topics Used
 Purpose	Topic
@@ -127,7 +127,7 @@ Example Top-Up Request:
 
 POST request:
 
-http://157.173.101.159:9277/topup
+http://157.173.101.159:9235/topup
 
 
 JSON Body:
@@ -148,7 +148,7 @@ Enter Top-Up Amount
 View Updated Balance in Real-Time
 
 Live Dashboard:
-👉 http://157.173.101.159:9277/frontend.html
+👉 http://157.173.101.159:9235/frontend.html
 
 🔎 Troubleshooting
 Port Already in Use

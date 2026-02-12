@@ -8,7 +8,7 @@ app = Flask(__name__, static_folder='public')
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # ─────────────────────────────────────────────── CHANGE THIS ─────
-TEAM_ID = "Zephyr"                     # ← same unique ID as in ESP code!
+TEAM_ID = "404"                     # ← same unique ID as in ESP code!
 BASE_TOPIC = f"rfid/{TEAM_ID}/"
 # ─────────────────────────────────────────────────────────────────────
 
